@@ -14,10 +14,11 @@ export const UserProvider = ({ children }) => {
   });
 
   const [errors, setErrors] = useState({
-    error: "",
     name: "",
     email: "",
     contact: "",
+    state: "",
+    district: "",
     captcha: "",
   });
 
