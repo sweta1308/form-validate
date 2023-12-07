@@ -6,7 +6,12 @@ export const Home = () => {
   const { setUser, username, user } = useUser();
   return (
     <div>
-      <h1>Welcome! {user.name ? user.name : username?.user?.name}</h1>
+      <h1 className="text-[24px] font-semibold">
+        Welcome!{" "}
+        <span className="text-primary-color font-bold">
+          {user.name ? user.name : username?.user?.name}
+        </span>
+      </h1>
       <button
         className="mt-[20px] bg-primary-color text-white py-[8px] px-[15px] rounded-md cursor-pointer hover:bg-primary-dark"
         onClick={() => {
