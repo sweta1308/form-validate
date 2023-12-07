@@ -1,11 +1,8 @@
 import { useUser } from "../context/UserContext";
+import { handleChange } from "../utils/HandleChange";
 
 export const DropDown = ({ data, nameEl }) => {
-  const { user, setUser } = useUser();
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setUser({ ...user, [name]: value });
-  };
+  const { user, setUser, setErrors } = useUser();
 
   return (
     <div>
@@ -17,7 +14,7 @@ export const DropDown = ({ data, nameEl }) => {
         <select
           name={nameEl}
           value={user.nameEl}
-          onChange={handleChange}
+          onChange={(e) => handleChange(e, setUser, setErrors)}
           className="w-full mt-[5px] border border-slate-400 outline-primary-color px-[10px] py-[5px] text-[14px] rounded"
         >
           <option value="">
