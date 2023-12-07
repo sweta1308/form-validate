@@ -18,7 +18,7 @@ export const DropDown = ({ data, nameEl }) => {
           name={nameEl}
           value={user.nameEl}
           onChange={handleChange}
-          className="w-[145px] border border-slate-400 outline-primary-color px-[10px] py-[5px] text-[14px] rounded"
+          className="w-full mt-[5px] border border-slate-400 outline-primary-color px-[10px] py-[5px] text-[14px] rounded"
         >
           <option value="">
             Select {nameEl?.charAt(0)?.toUpperCase() + nameEl?.slice(1)}
