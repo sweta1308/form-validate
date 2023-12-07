@@ -19,7 +19,7 @@ export const Form = () => {
 
   return (
     <>
-      <div className="w-[360px] p-[30px] shadow-lg rounded xs:w-[320px] xs:p-[0px] xs:px-[15px] xs:py-[20px]">
+      <div className="w-[420px] p-[30px] shadow-lg rounded xs:shadow-none xs:w-full xs:p-[0px] xs:px-[15px] xs:py-[20px] xs:mb-[20px]">
         <h1 className="font-extrabold text-[36px] text-center text-primary-dark mb-[20px]">
           Apply
         </h1>
@@ -49,10 +49,8 @@ export const Form = () => {
             handleChange={(e) => contactValidation(e, setUser, setErrors)}
           />
           <Error>{errors?.contact && errors.contact}</Error>
-          <div className="flex justify-between gap-1">
-            <DropDown nameEl="state" data={data.map((state) => state.state)} />
-            <DropDown nameEl="district" data={selectedState?.districts} />
-          </div>
+          <DropDown nameEl="state" data={data.map((state) => state.state)} />
+          <DropDown nameEl="district" data={selectedState?.districts} />
           <Captcha />
           <Error>{errors?.captcha && errors.captcha}</Error>
           <input
