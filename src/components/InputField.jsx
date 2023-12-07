@@ -7,7 +7,7 @@ export const InputField = ({ name, type, length, value, handleChange }) => {
           <span className="text-red-500">*</span>
         </span>
         <input
-          className="w-full border border-slate-400 outline-primary-color px-[10px] py-[5px] text-[14px] rounded"
+          className="w-full mt-[5px] border border-slate-400 outline-primary-color px-[10px] py-[5px] text-[14px] rounded"
           placeholder={`Enter ${name}`}
           name={name}
           type={type}
