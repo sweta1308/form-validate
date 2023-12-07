@@ -17,7 +17,7 @@ export const Form = () => {
 
   return (
     <>
-      <div className="w-[420px] p-[30px] shadow-lg rounded xs:shadow-none xs:w-full xs:p-[0px] xs:px-[15px] xs:py-[20px] xs:mb-[20px]">
+      <div className="w-[420px] p-[30px] shadow-lg rounded xs:shadow-none xs:w-full xs:p-[0px] xs:px-[15px] xs:py-[5px] xs:mb-[20px]">
         <h1 className="font-extrabold text-[36px] text-center text-primary-dark mb-[20px]">
           Apply
         </h1>
