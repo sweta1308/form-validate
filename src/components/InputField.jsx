@@ -1,4 +1,7 @@
+import { useUser } from "../context/UserContext";
+
 export const InputField = ({ name, type, length, value, handleChange }) => {
+  const { errors } = useUser();
   return (
     <div className="my-[12px]">
       <label className={`my-[6px]`}>
@@ -7,7 +10,11 @@ export const InputField = ({ name, type, length, value, handleChange }) => {
           <span className="text-red-500">*</span>
         </span>
         <input
-          className="w-full mt-[5px] border border-slate-400 outline-primary-color px-[10px] py-[5px] text-[14px] rounded"
+          className={`w-full mt-[5px] border  ${
+            errors[name] ? "border-red-500" : "border-slate-400"
+          } ${
+            errors[name] ? "outline-red-500" : "outline-primary-color"
+          } px-[10px] py-[5px] text-[14px] rounded`}
           placeholder={`Enter ${name}`}
           name={name}
           type={type}

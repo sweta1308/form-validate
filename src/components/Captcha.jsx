@@ -1,7 +1,7 @@
 import { useUser } from "../context/UserContext";
 
 export const Captcha = () => {
-  const { captcha, user, setUser, setErrors } = useUser();
+  const { captcha, user, setUser, errors, setErrors } = useUser();
   const { captcha1, captcha2 } = captcha;
   return (
     <div>
@@ -23,7 +23,11 @@ export const Captcha = () => {
           }}
           value={user.captcha}
           type="number"
-          className="w-full border border-slate-400 outline-primary-color px-[10px] py-[5px] text-[12px] rounded"
+          className={`w-full border ${
+            errors.captcha ? "border-red-500" : "border-slate-400"
+          } ${
+            errors.captcha ? "outline-red-500" : "outline-primary-color"
+          } px-[10px] py-[5px] text-[12px] rounded`}
           placeholder="Enter sum..."
         />
       </div>

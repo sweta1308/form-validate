@@ -2,7 +2,7 @@ import { useUser } from "../context/UserContext";
 import { handleChange } from "../utils/HandleChange";
 
 export const DropDown = ({ data, nameEl }) => {
-  const { user, setUser, setErrors } = useUser();
+  const { user, setUser, errors, setErrors } = useUser();
 
   return (
     <div>
@@ -15,7 +15,11 @@ export const DropDown = ({ data, nameEl }) => {
           name={nameEl}
           value={user.nameEl}
           onChange={(e) => handleChange(e, setUser, setErrors)}
-          className="w-full mt-[5px] border border-slate-400 outline-primary-color px-[10px] py-[5px] text-[14px] rounded"
+          className={`w-full mt-[5px] border ${
+            errors[nameEl] ? "border-red-500" : "border-slate-400"
+          } ${
+            errors[nameEl] ? "outline-red-500" : "outline-primary-color"
+          } px-[10px] py-[5px] text-[14px] rounded`}
         >
           <option value="">
             Select {nameEl?.charAt(0)?.toUpperCase() + nameEl?.slice(1)}
