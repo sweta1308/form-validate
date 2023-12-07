@@ -6,7 +6,7 @@ export const Captcha = () => {
   return (
     <div>
       <h2 className="my-[8px] font-bold text-primary-color">Captcha</h2>
-      <div className="flex justify-between items-center">
+      <div className="flex justify-between items-center gap-2">
         <span className="text-primary-color font-semibold bg-primary-light px-[9px] py-[2px] rounded">
           {captcha1}
         </span>{" "}
@@ -23,7 +23,7 @@ export const Captcha = () => {
           }}
           value={user.captcha}
           type="number"
-          className="border border-slate-400 outline-primary-color px-[10px] py-[5px] text-[12px] rounded"
+          className="w-full border border-slate-400 outline-primary-color px-[10px] py-[5px] text-[12px] rounded"
           placeholder="Enter sum..."
         />
       </div>
