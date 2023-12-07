@@ -13,6 +13,7 @@ export const InputField = ({ name, type, length, value, handleChange }) => {
           type={type}
           value={value}
           onChange={handleChange}
+          maxLength={length}
         />
       </label>
     </div>
