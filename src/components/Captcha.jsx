@@ -23,7 +23,7 @@ export const Captcha = () => {
           }}
           value={user.captcha}
           type="number"
-          className="border border-slate-400 outline-none px-[10px] py-[5px] text-[12px] rounded"
+          className="border border-slate-400 outline-primary-color px-[10px] py-[5px] text-[12px] rounded"
           placeholder="Enter sum..."
         />
       </div>

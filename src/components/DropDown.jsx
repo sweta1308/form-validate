@@ -9,14 +9,16 @@ export const DropDown = ({ data, nameEl }) => {
 
   return (
     <div>
-      <label className="my-[6px] flex flex-col">
-        <span>{nameEl?.charAt(0)?.toUpperCase() + nameEl?.slice(1)}: </span>
+      <label className="my-[12px] flex flex-col">
+        <span>
+          {nameEl?.charAt(0)?.toUpperCase() + nameEl?.slice(1)}:{" "}
+          <span className="text-red-500">*</span>
+        </span>
         <select
-          required
           name={nameEl}
           value={user.nameEl}
           onChange={handleChange}
-          className="w-[145px] border border-slate-400 outline-none px-[10px] py-[5px] text-[12px] rounded"
+          className="w-[145px] border border-slate-400 outline-primary-color px-[10px] py-[5px] text-[14px] rounded"
         >
           <option value="">
             Select {nameEl?.charAt(0)?.toUpperCase() + nameEl?.slice(1)}
