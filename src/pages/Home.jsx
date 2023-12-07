@@ -4,7 +4,6 @@ import { useUser } from "../context/UserContext";
 export const Home = () => {
   const navigate = useNavigate();
   const { setUser, username, user } = useUser();
-  console.log(username?.user?.name);
   return (
     <div>
       <h1>Welcome! {user.name ? user.name : username?.user?.name}</h1>
