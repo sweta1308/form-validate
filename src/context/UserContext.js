@@ -1,21 +1,40 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 
 const UserContext = createContext();
 
 export const UserProvider = ({ children }) => {
+  const username = JSON.parse(localStorage.getItem("data"));
   const [user, setUser] = useState({
-    userName: "",
+    name: "",
     email: "",
-    contact: 0,
+    contact: "",
     state: "",
     district: "",
     captcha: 0,
   });
 
-  const captcha1 = Math.floor(Math.random() * 100);
-  const captcha2 = Math.floor(Math.random() * 100);
+  const [errors, setErrors] = useState({
+    name: "",
+    email: "",
+    contact: "",
+    captcha: "",
+  });
 
-  const value = { user, setUser, captcha1, captcha2 };
+  const [captcha, setCaptcha] = useState({
+    captcha1: 0,
+    captcha2: 0,
+  });
+
+  useEffect(() => {
+    setCaptcha({
+      ...captcha,
+      captcha1: Math.floor(Math.random() * 100),
+      captcha2: Math.floor(Math.random() * 100),
+    });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  const value = { user, setUser, captcha, errors, setErrors, username };
 
   return <UserContext.Provider value={value}>{children}</UserContext.Provider>;
 };
