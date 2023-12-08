@@ -9,7 +9,6 @@ export const UserProvider = ({ children }) => {
     email: "",
     contact: "",
     state: "",
-    district: "",
     captcha: 0,
   });
 
