@@ -1,3 +1,5 @@
+import { contactValidation, emailValidation, nameValidation } from "./Validate";
+
 export const handleSubmit = (e, user, captcha, setErrors, navigate) => {
   e.preventDefault();
   const fields = Object.keys(user).slice(0, 5);
@@ -8,6 +10,15 @@ export const handleSubmit = (e, user, captcha, setErrors, navigate) => {
     return acc;
   }, {});
   setErrors(newValidationErrors);
+  if (user.name) {
+    nameValidation(user.name, setErrors);
+  }
+  if (user.email) {
+    emailValidation(user.email, setErrors);
+  }
+  if (user.contact) {
+    contactValidation(user.email, setErrors);
+  }
   if (captcha.captcha1 + captcha.captcha2 !== Number(user.captcha)) {
     setErrors((prev) => ({
       ...prev,
