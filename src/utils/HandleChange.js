@@ -4,6 +4,7 @@ import {
   nameValidation,
   validateRequired,
 } from "./Validate";
+import { debounce } from "./debounce";
 
 export const handleChange = (e, setUser, setErrors) => {
   const { name, value } = e.target;
@@ -19,7 +20,7 @@ export const handleChange = (e, setUser, setErrors) => {
     }
 
     if (name === "email") {
-      emailValidation(value, setErrors);
+      debounce(() => emailValidation(value, setErrors), 1000)();
     }
 
     if (name === "contact") {
