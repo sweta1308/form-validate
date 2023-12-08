@@ -5,15 +5,12 @@ import { InputField } from "../components/InputField";
 import { useUser } from "../context/UserContext";
 import { data } from "../data/StateData";
 import { Error } from "../components/Error";
-import { handleChange } from "../utils/HandleChange";
 import { handleSubmit } from "../utils/HandleSubmit";
 
 export const Form = () => {
   const navigate = useNavigate();
-  const { user, setUser, errors, setErrors, captcha } = useUser();
+  const { user, errors, setErrors, captcha } = useUser();
   const selectedState = data.find((state) => state.state === user.state);
-
-  const handleInputChange = (e) => handleChange(e, setUser, setErrors);
 
   return (
     <>
@@ -27,30 +24,18 @@ export const Form = () => {
             handleSubmit(e, user, captcha, errors, setErrors, navigate)
           }
         >
-          <InputField
-            name="name"
-            type="text"
-            value={user.name}
-            handleChange={handleInputChange}
-          />
+          <InputField name="name" type="text" />
           <Error>{errors?.name && errors.name}</Error>
-          <InputField
-            name="email"
-            type="text"
-            value={user.email}
-            handleChange={handleInputChange}
-          />
+
+          <InputField name="email" type="text" />
           <Error>{errors?.email && errors.email}</Error>
-          <InputField
-            name="contact"
-            type="text"
-            value={user.contact}
-            handleChange={handleInputChange}
-            length={"10"}
-          />
+
+          <InputField name="contact" type="text" length={"10"} />
           <Error>{errors?.contact && errors.contact}</Error>
+
           <DropDown nameEl="state" data={data.map((state) => state.state)} />
           <Error>{errors?.state && errors.state}</Error>
+
           <DropDown nameEl="district" data={selectedState?.districts} />
           <Captcha />
           <Error>{errors?.captcha && errors.captcha}</Error>
