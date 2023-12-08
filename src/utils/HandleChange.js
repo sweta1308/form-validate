@@ -1,7 +1,7 @@
 import {
-  validateContact,
-  validateEmail,
-  validateName,
+  contactValidation,
+  emailValidation,
+  nameValidation,
   validateRequired,
 } from "./Validate";
 
@@ -11,37 +11,15 @@ export const handleChange = (e, setUser, setErrors) => {
     setErrors((prev) => ({ ...prev, [name]: "This field is required!" }));
   } else {
     if (name === "name") {
-      if (!validateName(value)) {
-        setErrors((prev) => ({
-          ...prev,
-          name: "Name should contain only alphabets.",
-        }));
-      } else {
-        setErrors((prev) => ({ ...prev, name: "" }));
-      }
+      nameValidation(value, setErrors);
     }
 
     if (name === "email") {
-      if (!validateEmail(value)) {
-        setErrors((prev) => ({
-          ...prev,
-          email: "Please provide a valid email.",
-        }));
-      } else {
-        setErrors((prev) => ({ ...prev, email: "" }));
-      }
+      emailValidation(value, setErrors);
     }
 
     if (name === "contact") {
-      if (!validateContact(value)) {
-        setErrors((prev) => ({
-          ...prev,
-          contact:
-            "Contact should contain only numbers and maximum 10 characters.",
-        }));
-      } else {
-        setErrors((prev) => ({ ...prev, contact: "" }));
-      }
+      contactValidation(value, setErrors);
     }
   }
   if (name === "name") {
