@@ -2,7 +2,7 @@ import { contactValidation, emailValidation, nameValidation } from "./Validate";
 
 export const handleSubmit = (e, user, captcha, errors, setErrors, navigate) => {
   e.preventDefault();
-  const fields = Object.keys(user).slice(0, 5);
+  const fields = ["name", "email", "state"];
   const newValidationErrors = fields.reduce((acc, field) => {
     if (!user[field].trim()) {
       acc[field] = "This field is required.";

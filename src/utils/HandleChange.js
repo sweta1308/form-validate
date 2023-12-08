@@ -8,7 +8,11 @@ import {
 export const handleChange = (e, setUser, setErrors) => {
   const { name, value } = e.target;
   if (!validateRequired(name, value)) {
-    setErrors((prev) => ({ ...prev, [name]: "This field is required!" }));
+    setErrors((prev) => ({
+      ...prev,
+      [name]: "This field is required!",
+      contact: "",
+    }));
   } else {
     if (name === "name") {
       nameValidation(value, setErrors);
