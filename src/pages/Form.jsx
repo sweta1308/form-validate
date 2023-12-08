@@ -24,13 +24,13 @@ export const Form = () => {
             handleSubmit(e, user, captcha, errors, setErrors, navigate)
           }
         >
-          <InputField name="name" type="text" />
+          <InputField nameEl="name" type="text" />
           <Error>{errors?.name && errors.name}</Error>
 
-          <InputField name="email" type="text" />
+          <InputField nameEl="email" type="text" />
           <Error>{errors?.email && errors.email}</Error>
 
-          <InputField name="contact" type="text" length={"10"} />
+          <InputField nameEl="contact" type="text" length={"10"} />
           <Error>{errors?.contact && errors.contact}</Error>
 
           <DropDown nameEl="state" data={data.map((state) => state.state)} />
