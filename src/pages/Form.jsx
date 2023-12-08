@@ -23,7 +23,9 @@ export const Form = () => {
         </h1>
         <form
           className="flex flex-col"
-          onSubmit={(e) => handleSubmit(e, user, captcha, setErrors, navigate)}
+          onSubmit={(e) =>
+            handleSubmit(e, user, captcha, errors, setErrors, navigate)
+          }
         >
           <InputField
             name="name"
