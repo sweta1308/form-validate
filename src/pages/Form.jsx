@@ -52,7 +52,6 @@ export const Form = () => {
           <DropDown nameEl="state" data={data.map((state) => state.state)} />
           <Error>{errors?.state && errors.state}</Error>
           <DropDown nameEl="district" data={selectedState?.districts} />
-          <Error>{errors?.district && errors.district}</Error>
           <Captcha />
           <Error>{errors?.captcha && errors.captcha}</Error>
           <input
